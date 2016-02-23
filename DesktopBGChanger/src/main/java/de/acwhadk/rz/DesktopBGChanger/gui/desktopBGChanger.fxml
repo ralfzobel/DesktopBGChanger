@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.acwhadk.rz.DesktopBGChanger.gui.Controller">
+   <children>
+      <TextArea editable="false" prefHeight="190.0" prefWidth="190.0" text="Select folders for your &#10;desktop backgrounds here.&#10;&#10;All jpg files of these folders &#10;including sub folders will be&#10;used for changing your desktop&#10;backgound.&#10;&#10;Use the context menu to add an&#10;delete entries." AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <ListView fx:id="listInclude" prefWidth="190.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="205.0" />
+      <Separator orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="0.0" />
+      <TextArea editable="false" layoutX="10.0" layoutY="10.0" prefHeight="190.0" prefWidth="190.0" text="If your selected folders contain&#10;sub folders that shall be ignored,&#10;you can add these here." AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="5.0" />
+      <ListView fx:id="listExclude" layoutX="10.0" layoutY="210.0" prefWidth="190.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="205.0" />
+      <Label text="Shutdown mode" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <ComboBox fx:id="cbxShutdownMode" prefWidth="150.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="25.0" />
+      <Button fx:id="btnOk" mnemonicParsing="false" text="Ok" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="105.0" />
+      <Button fx:id="btnCancel" mnemonicParsing="false" text="Cancel" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="5.0" />
+   </children>
+</AnchorPane>
