@@ -66,7 +66,8 @@ public class Controller {
     private Button btnSelectFolder;
     
 	private Stage stage;
-
+	private String currentFolder;
+	
 	void initialize() {
 		btnOk.setOnAction(e -> handleOk());
 		btnCancel.setOnAction(e -> handleCancel());
@@ -93,6 +94,7 @@ public class Controller {
 		txtMaxNum.setText(Integer.toString(cfg.getMaxFiles()));
 		txtSelectFolder.setText(cfg.getDesktopFolder());
 		cbxShutdownMode.getSelectionModel().select(cfg.getShutdownMode());
+		currentFolder = cfg.getCurrentFile();
 	}
 
 	private Config loadConfig() {
@@ -188,6 +190,7 @@ public class Controller {
 			return null;
 		}
 		cfg.setDesktopFolder(desktopFolder);
+		cfg.setCurrentFile(currentFolder);
 		
 		saveConfig(cfg);
 		

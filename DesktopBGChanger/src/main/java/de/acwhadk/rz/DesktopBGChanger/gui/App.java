@@ -1,6 +1,7 @@
 package de.acwhadk.rz.DesktopBGChanger.gui;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,7 +32,7 @@ public class App extends Application {
 			primaryStage.setTitle("DesktopBGChangerGui");
 		} catch (Exception e) {
 			Controller.showException(e);
-			System.exit(1);
+			Platform.exit();
 		}
 		
 		primaryStage.show();

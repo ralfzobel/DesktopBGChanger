@@ -15,27 +15,32 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
+import org.apache.log4j.Logger;
+
 import de.acwhadk.rz.DesktopBGChanger.cfg.Config;
 import de.acwhadk.rz.DesktopBGChanger.cfg.ConfigToXML;
 
+
 public class App {
+	final static Logger logger = Logger.getLogger(App.class);
 
 	public static void main(String[] args) {
 		try {
 			new App();
 		} catch (IOException | JAXBException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			logger.fatal("Exception: ", e1);
 		}
 	}
 
 	private App() throws IOException, JAXBException {
+		logger.info("DesktopBGChanger started");
 		Config config = loadConfig();
 		List<Path> fileList = loadFileList(config);
 		deleteOldFiles(config);	
 		copyFiles(fileList, config);
 		shutdown(config);
 		saveConfig(config);
+		logger.info("DesktopBGChanger successful");
 	}
 	
 	private Config loadConfig() throws IOException, JAXBException {
