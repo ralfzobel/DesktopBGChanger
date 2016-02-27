@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
-	private Controller controller;
-	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -24,13 +22,15 @@ public class App extends Application {
 			Parent root=null;
 			final FXMLLoader loader = new FXMLLoader(getClass().getResource("desktopBGChanger.fxml"));
 			root = (Parent) loader.load();
-			controller = loader.<Controller>getController();
+			Controller controller = loader.<Controller>getController();
+			controller.setStage(primaryStage);
+			controller.initialize();
 			
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("DesktopBGChangerGui");
 		} catch (Exception e) {
-			controller.showException(e);
+			Controller.showException(e);
 			System.exit(1);
 		}
 		

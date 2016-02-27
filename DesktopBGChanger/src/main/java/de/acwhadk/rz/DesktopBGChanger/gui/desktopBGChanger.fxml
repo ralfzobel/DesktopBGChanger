@@ -5,17 +5,27 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.acwhadk.rz.DesktopBGChanger.gui.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.acwhadk.rz.DesktopBGChanger.gui.Controller">
    <children>
-      <TextArea editable="false" prefHeight="190.0" prefWidth="190.0" text="Select folders for your &#10;desktop backgrounds here.&#10;&#10;All jpg files of these folders &#10;including sub folders will be&#10;used for changing your desktop&#10;backgound.&#10;&#10;Use the context menu to add an&#10;delete entries." AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-      <ListView fx:id="listInclude" prefWidth="190.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="205.0" />
-      <Separator orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="0.0" />
-      <TextArea editable="false" layoutX="10.0" layoutY="10.0" prefHeight="190.0" prefWidth="190.0" text="If your selected folders contain&#10;sub folders that shall be ignored,&#10;you can add these here." AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="5.0" />
-      <ListView fx:id="listExclude" layoutX="10.0" layoutY="210.0" prefWidth="190.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="205.0" />
-      <Label text="Shutdown mode" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
-      <ComboBox fx:id="cbxShutdownMode" prefWidth="150.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="25.0" />
-      <Button fx:id="btnOk" mnemonicParsing="false" text="Ok" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="105.0" />
-      <Button fx:id="btnCancel" mnemonicParsing="false" text="Cancel" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="5.0" />
+      <TextArea editable="false" prefHeight="190.0" prefWidth="290.0" text="Select folders for your &#10;desktop backgrounds here.&#10;&#10;All jpg files of these folders &#10;including sub folders will be&#10;used for changing your desktop&#10;backgound.&#10;&#10;Use the context menu to add an&#10;delete entries." AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <ListView fx:id="listInclude" prefWidth="290.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="205.0" />
+      <TextArea editable="false" layoutX="10.0" layoutY="10.0" prefHeight="190.0" prefWidth="290.0" text="If your selected folders contain&#10;sub folders that shall be ignored,&#10;you can add these here." AnchorPane.leftAnchor="305.0" AnchorPane.topAnchor="5.0" />
+      <ListView fx:id="listExclude" layoutX="10.0" layoutY="210.0" prefWidth="290.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="305.0" AnchorPane.topAnchor="205.0" />
+      <Label text="Shutdown mode" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="5.0" />
+      <ComboBox fx:id="cbxShutdownMode" prefWidth="150.0" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="25.0" />
+      <Button fx:id="btnOk" mnemonicParsing="false" text="Ok" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="205.0" />
+      <Button fx:id="btnCancel" mnemonicParsing="false" text="Cancel" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="55.0" />
+      <Label layoutX="405.0" layoutY="75.0" text="enter the number of pictures" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="75.0" />
+      <Label layoutX="450.0" layoutY="92.0" text="min" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="100.0" />
+      <TextField fx:id="txtMinNum" layoutX="505.0" layoutY="88.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.leftAnchor="675.0" AnchorPane.topAnchor="100.0" />
+      <Label layoutX="489.0" layoutY="110.0" text="max" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="130.0" />
+      <TextField fx:id="txtMaxNum" layoutX="515.0" layoutY="110.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.leftAnchor="675.0" AnchorPane.topAnchor="130.0" />
+      <Button fx:id="btnAddInclude" layoutX="415.0" layoutY="560.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" />
+      <Button fx:id="btnRemoveInclude" layoutX="15.0" layoutY="560.0" mnemonicParsing="false" text="Remove" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="55.0" />
+      <Button fx:id="btnAddExclude" layoutX="15.0" layoutY="560.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="305.0" />
+      <Button fx:id="btnRemoveExclude" layoutX="65.0" layoutY="560.0" mnemonicParsing="false" text="Remove" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="355.0" />
+      <Label layoutX="405.0" layoutY="178.0" text="Folder to copy the files to" />
+      <TextField fx:id="txtSelectFolder" editable="false" layoutX="405.0" layoutY="205.0" AnchorPane.leftAnchor="620.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="205.0" />
+      <Button fx:id="btnSelectFolder" layoutX="405.0" layoutY="240.0" mnemonicParsing="false" text="Select Folder" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="240.0" />
    </children>
 </AnchorPane>

@@ -39,15 +39,8 @@
 							</jre>
 						</configuration>
 					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.akathist.maven.plugins.launch4j</groupId>
-				<artifactId>launch4j-maven-plugin</artifactId>
-				<version>1.7.8</version>
-				<executions>
 					<execution>
-						<id>l4j</id>
+						<id>l4jgui</id>
 						<phase>package</phase>
 						<goals>
 							<goal>launch4j</goal>
