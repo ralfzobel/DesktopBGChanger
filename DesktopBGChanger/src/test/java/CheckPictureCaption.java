@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import de.acwhadk.rz.DesktopBGChanger.picture.PictureCaption;
 
-public class TestSubscriber {
+public class CheckPictureCaption {
 
 	@Test
 	public void test() throws MalformedURLException, IOException {
