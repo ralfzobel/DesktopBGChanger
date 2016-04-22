@@ -27,5 +27,10 @@
       <Label layoutX="405.0" layoutY="178.0" text="Folder to copy the files to" />
       <TextField fx:id="txtSelectFolder" editable="false" layoutX="405.0" layoutY="205.0" AnchorPane.leftAnchor="620.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="205.0" />
       <Button fx:id="btnSelectFolder" layoutX="405.0" layoutY="240.0" mnemonicParsing="false" text="Select Folder" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="240.0" />
+      <CheckBox fx:id="cbCaption" layoutX="606.0" layoutY="300.0" mnemonicParsing="false" text="write path to picture" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="300.0" />
+      <CheckBox fx:id="cbLeft" layoutX="630.0" layoutY="310.0" mnemonicParsing="false" text="write path at left side" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="330.0" />
+      <CheckBox fx:id="cbTop" layoutX="630.0" layoutY="340.0" mnemonicParsing="false" text="write path at top of picture" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="360.0" />
+      <Label layoutX="630.0" layoutY="140.0" text="font size" AnchorPane.leftAnchor="620.0" AnchorPane.topAnchor="390.0" />
+      <TextField fx:id="txtFontSize" layoutX="685.0" layoutY="110.0" prefHeight="25.0" prefWidth="90.0" AnchorPane.leftAnchor="675.0" AnchorPane.topAnchor="390.0" />
    </children>
 </AnchorPane>

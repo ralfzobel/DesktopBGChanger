@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -65,6 +66,18 @@ public class Controller {
     @FXML
     private Button btnSelectFolder;
     
+    @FXML
+    private CheckBox cbCaption;
+
+    @FXML
+    private CheckBox cbLeft;
+
+    @FXML
+    private CheckBox cbTop;
+
+    @FXML
+    private TextField txtFontSize;
+    
 	private Stage stage;
 	private String currentFolder;
 	
@@ -92,8 +105,14 @@ public class Controller {
 		
 		txtMinNum.setText(Integer.toString(cfg.getMinFiles()));
 		txtMaxNum.setText(Integer.toString(cfg.getMaxFiles()));
+		txtFontSize.setText(Integer.toString(cfg.getFontSize()));
 		txtSelectFolder.setText(cfg.getDesktopFolder());
 		cbxShutdownMode.getSelectionModel().select(cfg.getShutdownMode());
+		
+		cbCaption.setSelected(cfg.getCaption());
+		cbLeft.setSelected(cfg.getLeft());
+		cbTop.setSelected(cfg.getTop());
+		
 		currentFolder = cfg.getCurrentFile();
 	}
 
@@ -179,6 +198,7 @@ public class Controller {
 		try {
 			cfg.setMinFiles(Integer.parseInt(txtMinNum.getText()));
 			cfg.setMaxFiles(Integer.parseInt(txtMaxNum.getText()));
+			cfg.setFontSize(Integer.parseInt(txtFontSize.getText()));
 		} catch(NumberFormatException e) {
 			showException(e);
 			return null;
@@ -191,6 +211,10 @@ public class Controller {
 		}
 		cfg.setDesktopFolder(desktopFolder);
 		cfg.setCurrentFile(currentFolder);
+		
+		cfg.setCaption(cbCaption.isSelected());
+		cfg.setLeft(cbLeft.isSelected());
+		cfg.setTop(cbTop.isSelected());
 		
 		saveConfig(cfg);
 		

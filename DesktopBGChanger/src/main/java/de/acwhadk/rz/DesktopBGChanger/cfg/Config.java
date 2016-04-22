@@ -17,7 +17,11 @@ import javax.xml.bind.annotation.XmlType;
 	    "minFiles",
 	    "maxFiles",
 	    "shutdownMode",
-	    "currentFile"	    
+	    "currentFile",
+	    "caption",
+	    "left",
+	    "top",
+	    "fontSize"
 })
 public class Config {
 	private List<String> includes;
@@ -27,6 +31,10 @@ public class Config {
 	private int maxFiles;
 	private String shutdownMode;
 	private String currentFile;
+	private Boolean caption;
+	private Boolean left;
+	private Boolean top;
+	private Integer fontSize;
 	
 	public List<String> getIncludes() {
 		if (includes == null) {
@@ -75,6 +83,30 @@ public class Config {
 	}
 	public void setDesktopFolder(String desktopFolder) {
 		this.desktopFolder = desktopFolder;
+	}
+	public Boolean getCaption() {
+		return caption;
+	}
+	public void setCaption(Boolean caption) {
+		this.caption = caption;
+	}
+	public Boolean getLeft() {
+		return left;
+	}
+	public void setLeft(Boolean left) {
+		this.left = left;
+	}
+	public Boolean getTop() {
+		return top;
+	}
+	public void setTop(Boolean top) {
+		this.top = top;
+	}
+	public Integer getFontSize() {
+		return fontSize;
+	}
+	public void setFontSize(Integer fontSize) {
+		this.fontSize = fontSize;
 	}
 
 }

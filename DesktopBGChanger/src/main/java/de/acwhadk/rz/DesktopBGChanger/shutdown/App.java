@@ -1,5 +1,6 @@
 package de.acwhadk.rz.DesktopBGChanger.shutdown;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.CopyOption;
@@ -13,12 +14,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.xml.bind.JAXBException;
 
 import org.apache.log4j.Logger;
 
 import de.acwhadk.rz.DesktopBGChanger.cfg.Config;
 import de.acwhadk.rz.DesktopBGChanger.cfg.ConfigToXML;
+import de.acwhadk.rz.DesktopBGChanger.picture.PictureCaption;
 
 
 public class App {
@@ -87,9 +90,7 @@ public class App {
 			}
 			
 			// copy file
-			Path targetPath = Paths.get(config.getDesktopFolder()+"\\"+sourcePath.getFileName().toString());
-			CopyOption options = StandardCopyOption.REPLACE_EXISTING;
-			Files.copy(sourcePath, targetPath, options);
+			copyFile(config, sourcePath);
 
 			// check if maximum is reached
 			if (cnt >= config.getMaxFiles()) {
@@ -102,6 +103,26 @@ public class App {
 		}
 		// save last copied file for next execution
 		config.setCurrentFile(lastPath.toString());
+	}
+
+	private void copyFile(Config config, Path sourcePath) throws IOException {
+		boolean subscribe = config.getCaption();
+		boolean left = config.getLeft();
+		boolean top = config.getTop();
+		int fontSize = config.getFontSize();
+		
+		if (!subscribe || fontSize <= 0) {
+			Path targetPath = Paths.get(config.getDesktopFolder()+"\\"+sourcePath.getFileName().toString());
+			CopyOption options = StandardCopyOption.REPLACE_EXISTING;
+			Files.copy(sourcePath, targetPath, options);
+		} else {
+			logger.info("write path to " + sourcePath.toString());
+			BufferedImage image = PictureCaption.convert(sourcePath.toString(), sourcePath.toString(), left, top, fontSize);
+			String filename = sourcePath.getFileName().toString();
+			filename = filename.toLowerCase().replace("jpg", "png");
+			File outputfile = new File(config.getDesktopFolder()+"\\"+filename);
+		    ImageIO.write(image, "png", outputfile);
+		}
 	}
 
 	private void shutdown(Config config) throws IOException {
@@ -135,7 +156,7 @@ public class App {
 			for (Path path : directoryStream) {
 				if (Files.isDirectory(path, LinkOption.NOFOLLOW_LINKS)) {
 					files.addAll(fileList(path.toString()));
-				} else if (path.toString().toLowerCase().endsWith(".jpg")) {
+				} else if (path.toString().toLowerCase().endsWith(".jpg") || path.toString().toLowerCase().endsWith(".png")) {
 					files.add(path);
 				}
 			}
