@@ -27,6 +27,9 @@ public class PictureCaption {
 		g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize * img.getHeight() / 1024));
 		FontMetrics fm = g2d.getFontMetrics();
 		int x = left ? 10 : img.getWidth() - fm.stringWidth(text) - 10;
+		if (x < 10) {
+			x = 10;
+		}
 		int y = top ? fm.getHeight() : img.getHeight() - fm.getHeight();
 		float luminance = getAverageLuminance(image, x, y, fm.stringWidth(text), fm.getHeight());
 		if (luminance >= 0.5f) {
@@ -42,7 +45,7 @@ public class PictureCaption {
 	private static float getAverageLuminance(BufferedImage image, int x0, int y0, int width, int height) {
 		int cnt=0;
 		float luminance = 0.0F;
-		for(int x=x0; x<x0+width; x+=10) {
+		for(int x=x0; x<x0+width && x<image.getWidth(); x+=10) {
 			for(int y=y0-height; y<y0; y+=10) {
 				luminance += getLuminance(image, x, y);
 				++cnt;
