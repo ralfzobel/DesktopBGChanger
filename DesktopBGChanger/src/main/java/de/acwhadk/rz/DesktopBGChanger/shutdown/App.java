@@ -19,6 +19,9 @@ import javax.xml.bind.JAXBException;
 
 import org.apache.log4j.Logger;
 
+import com.drew.imaging.ImageProcessingException;
+import com.drew.metadata.MetadataException;
+
 import de.acwhadk.rz.DesktopBGChanger.cfg.Config;
 import de.acwhadk.rz.DesktopBGChanger.cfg.ConfigToXML;
 import de.acwhadk.rz.DesktopBGChanger.picture.PictureCaption;
@@ -102,7 +105,9 @@ public class App {
 			++cnt;
 		}
 		// save last copied file for next execution
-		config.setCurrentFile(lastPath.toString());
+		if (lastPath != null) {
+			config.setCurrentFile(lastPath.toString());
+		}
 	}
 
 	private void copyFile(Config config, Path sourcePath) throws IOException {
@@ -116,8 +121,19 @@ public class App {
 			CopyOption options = StandardCopyOption.REPLACE_EXISTING;
 			Files.copy(sourcePath, targetPath, options);
 		} else {
+			File file = new File(sourcePath.toString());
 			logger.info("write path to " + sourcePath.toString());
-			BufferedImage image = PictureCaption.convert(sourcePath.toString(), sourcePath.toString(), left, top, fontSize);
+			BufferedImage img=null;
+			try {
+				img = ImageOrientationUtil.correctOrientation(file);
+			} catch (ImageProcessingException | MetadataException e) {
+				logger.error("cannot read meta data for " + sourcePath.toString());
+			}
+			if (img == null) {
+				logger.info("no meta data for image " + sourcePath.toString());
+				img = ImageIO.read(new File(sourcePath.toString()));
+			}
+			BufferedImage image = PictureCaption.convert(img, sourcePath.toString(), left, top, fontSize);
 			String filename = sourcePath.getFileName().toString();
 			filename = filename.toLowerCase().replace("jpg", "png");
 			File outputfile = new File(config.getDesktopFolder()+"\\"+filename);
@@ -170,5 +186,4 @@ public class App {
 		}
 		return !Files.isSameFile(path1.getParent(), path2.getParent());
 	}
-
 }

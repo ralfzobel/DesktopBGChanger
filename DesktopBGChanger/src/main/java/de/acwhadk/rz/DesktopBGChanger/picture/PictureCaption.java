@@ -16,8 +16,8 @@ public class PictureCaption {
 	private PictureCaption() {
 	}
 
-	public static BufferedImage convert(String file, String text, boolean left, boolean top, int fontSize) throws MalformedURLException, IOException {
-		BufferedImage image = ImageIO.read(new URL("file:"+file));
+	public static BufferedImage convert(BufferedImage image, String text, boolean left, boolean top, int fontSize) throws MalformedURLException, IOException {
+//		BufferedImage image = ImageIO.read(new URL("file:"+file));
 		int w = image.getWidth();
 		int h = image.getHeight();
 		BufferedImage img = new BufferedImage(
