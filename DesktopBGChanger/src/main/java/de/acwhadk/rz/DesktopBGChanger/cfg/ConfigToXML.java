@@ -23,7 +23,7 @@ public class ConfigToXML {
 
 	private static final String JAXB_PACKAGES = "de.acwhadk.rz.DesktopBGChanger.cfg";
 	private static final String APP_NAME = "DesktopBGChanger";
-	private static final String CFG_FILE = "config-dvlp.xml";
+	private static final String CFG_FILE = "config.xml";
 	private static final String sep = File.separator;
 	
 	public static Config load(File file) throws JAXBException {
