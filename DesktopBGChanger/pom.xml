@@ -73,7 +73,7 @@
 						<configuration>
 							<headerType>console</headerType>
 							<outfile>target/DesktopBGChanger.exe</outfile>
-							<jar>target/DesktopBGChanger-0.0.1-SNAPSHOT.jar</jar>
+							<jar>target/DesktopBGChanger-0.0.2-SNAPSHOT.jar</jar>
 							<errTitle>DesktopBGChanger</errTitle>
 							<icon>Apps-Dialog-Shutdown-icon_32x32.ico</icon>
 							<classPath>
@@ -93,7 +93,7 @@
 						<configuration>
 							<headerType>console</headerType>
 							<outfile>target/DesktopBGChangerGui.exe</outfile>
-							<jar>target/DesktopBGChanger-0.0.1-SNAPSHOT.jar</jar>
+							<jar>target/DesktopBGChanger-0.0.2-SNAPSHOT.jar</jar>
 							<errTitle>DesktopBGChangerGui</errTitle>
 							<icon>Apps-Dialog-Shutdown-icon_32x32.ico</icon>
 							<classPath>
